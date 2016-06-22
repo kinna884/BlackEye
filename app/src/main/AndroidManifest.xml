@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MVP.CreateHintActivity"></activity>
+        <activity android:name=".MVP.CreateHintActivity" />
+        <activity android:name=".MVP.HintListActivity"></activity>
     </application>
 
 </manifest>
