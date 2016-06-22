@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.nonvoid.blackeye.MVP.CreateHintActivity;
+import com.nonvoid.blackeye.MVP.HintListActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case  R.id.viewHintsButton :
-
+                Intent i1 = new Intent(this, HintListActivity.class);
+                startActivity(i1);
                 break;
         }
     }

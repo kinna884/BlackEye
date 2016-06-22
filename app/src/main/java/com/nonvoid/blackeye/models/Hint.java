@@ -2,10 +2,12 @@ package com.nonvoid.blackeye.models;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.io.Serializable;
+
 /**
  * Created by Matt on 6/21/2016.
  */
-public class Hint {
+public class Hint implements Serializable {
     String description;
     LatLng location;
 

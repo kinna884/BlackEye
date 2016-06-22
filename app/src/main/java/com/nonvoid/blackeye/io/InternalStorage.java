@@ -46,6 +46,11 @@ public class InternalStorage {
     }
 
     public static ArrayList<Hint> readHintList(Context context) {
-        return (ArrayList<Hint>) InternalStorage.readObject(context, HINTLISTKEY);
+        ArrayList<Hint> list = (ArrayList<Hint>) InternalStorage.readObject(context, HINTLISTKEY);
+
+        if(list == null)
+            return new ArrayList<>();
+        else
+            return list;
     }
 }
