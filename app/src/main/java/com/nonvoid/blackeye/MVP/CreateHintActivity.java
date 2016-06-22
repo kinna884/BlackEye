@@ -52,7 +52,7 @@ public class CreateHintActivity extends AppCompatActivity  {
 
         //      break;
             case R.id.buttonSaveHint:
-                Hint newHint = new Hint("test", null);
+                Hint newHint = new Hint(description.getText().toString(), null);
                 ArrayList<Hint> hintList = InternalStorage.readHintList(this);
                 hintList.add(newHint);
                 InternalStorage.writeHintsList(this, hintList);

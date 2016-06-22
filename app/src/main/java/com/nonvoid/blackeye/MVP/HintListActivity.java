@@ -27,5 +27,6 @@ public class HintListActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: hints size="+hints.size());
         listView = (ListView) findViewById(R.id.listViewHints);
         adapter = new ListViewAdapter(this, hints);
+        listView.setAdapter(adapter);
     }
 }
