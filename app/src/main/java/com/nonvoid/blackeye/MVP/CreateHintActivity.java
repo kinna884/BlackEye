@@ -5,6 +5,8 @@ import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.google.android.gms.vision.text.Text;
 import com.nonvoid.blackeye.R;
 
 import android.Manifest;
@@ -41,6 +43,8 @@ public class CreateHintActivity extends AppCompatActivity implements LocationLis
     Hint hint;
     TextView description;
     private Location mLastLocation;
+    private TextView mLatitude, mLongitude;
+    private LatLng currentLocation;
 
 
     @Override
@@ -57,6 +61,8 @@ public class CreateHintActivity extends AppCompatActivity implements LocationLis
         }
 
         description = (TextView) findViewById(R.id.editTextHintText);
+        mLatitude = (TextView) findViewById(R.id.textViewLatitude);
+        mLongitude = (TextView) findViewById(R.id.textViewLongitude);
     }
 
     @Override
@@ -87,7 +93,8 @@ public class CreateHintActivity extends AppCompatActivity implements LocationLis
                 }
                 else
                 {
-                    Hint newHint = new Hint(HintDescription.getText().toString(), null);
+                    //good to go
+                    Hint newHint = new Hint(HintDescription.getText().toString(), currentLocation);
                     ArrayList<Hint> hintList = InternalStorage.readHintList(this);
                     hintList.add(newHint);
                     InternalStorage.writeHintsList(this, hintList);
@@ -131,8 +138,9 @@ public class CreateHintActivity extends AppCompatActivity implements LocationLis
                 mGoogleApiClient);
         if (mLastLocation != null) {
             Log.d(TAG, "onConnected: mLastLocation != null");
-           //mLatitude.setText(String.valueOf(mLastLocation.getLatitude()));
-            //mLongitude.setText(String.valueOf(mLastLocation.getLongitude()));
+            mLatitude.setText(String.valueOf(mLastLocation.getLatitude()));
+            mLongitude.setText(String.valueOf(mLastLocation.getLongitude()));
+            currentLocation = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
         }
     }
 

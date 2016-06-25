@@ -9,16 +9,18 @@ import java.io.Serializable;
  */
 public class Hint implements Serializable {
     String description;
-    LatLng location;
+    //LatLng location;
+    double lat,lng;
 
     public Hint(String description, LatLng location) {
         this.description = description;
-        this.location = location;
+        this.lat = location.latitude;
+        this.lng = location.longitude;
     }
 
     public Hint(String description) {
         this.description = description;
-        this.location = new LatLng(0,0);
+        //this.location = new LatLng(0,0);
     }
 
     public String getDescription() {
@@ -26,6 +28,13 @@ public class Hint implements Serializable {
     }
 
     public LatLng getLocation() {
-        return location;
+        return new LatLng(lat, lng);
+    }
+
+    public double getLat(){
+        return lat;
+    }
+    public double getLng(){
+        return lng;
     }
 }

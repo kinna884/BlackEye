@@ -38,8 +38,10 @@ public class ListViewAdapter extends ArrayAdapter<Hint> {
 
         // Lookup view for data population
         TextView title = (TextView) convertView.findViewById(R.id.hintDescription);
-        title.setText(item.getDescription());
+        TextView loc = (TextView) convertView.findViewById(R.id.hintLocation);
 
+        title.setText(item.getDescription());
+        loc.setText(item.getLocation().toString());
 
 
         return convertView;
