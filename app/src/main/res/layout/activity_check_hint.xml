@@ -45,6 +45,7 @@
         android:layout_height="wrap_content"
         android:text="Check Location"
         android:id="@+id/CheckLocationButton"
+        android:onClick="onClick"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="93dp"
         android:layout_alignLeft="@+id/hintName"

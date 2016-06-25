@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.nonvoid.blackeye.R;
 import com.nonvoid.blackeye.models.Hint;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -28,9 +29,18 @@ public class ListViewAdapter extends ArrayAdapter<Hint> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_view_row, parent, false);
         }
+
+        long date = System.currentTimeMillis();
+        TextView dateTime = (TextView) convertView.findViewById(R.id.dateTime);
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM MM dd, yyyy h:mm a");
+        String dateString = sdf.format(date);
+        dateTime.setText(dateString);
+
         // Lookup view for data population
-        TextView title = (TextView) convertView.findViewById(R.id.textViewHintDescription);
+        TextView title = (TextView) convertView.findViewById(R.id.hintDescription);
         title.setText(item.getDescription());
+
+
 
         return convertView;
     }
