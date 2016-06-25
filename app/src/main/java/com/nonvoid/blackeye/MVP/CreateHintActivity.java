@@ -15,6 +15,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -109,13 +110,22 @@ public class CreateHintActivity extends AppCompatActivity implements GoogleApiCl
 
         //      break;
             case R.id.buttonSaveHint:
-                Hint newHint = new Hint(description.getText().toString(), null);
-                ArrayList<Hint> hintList = InternalStorage.readHintList(this);
-                hintList.add(newHint);
-                InternalStorage.writeHintsList(this, hintList);
-                //Log.d(MainActivity.DEBUGSTR, "onClick: saved hintList to InternalStorage");
-                finish();
-
+                TextView HintDescription = (TextView)findViewById(R.id.editTextHintText);
+                if (HintDescription.getText().toString().trim().length() == 0)
+                {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Invalid entry. Insert a hint before saving.", Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.BOTTOM | Gravity.BOTTOM, 0, 0);
+                    toast.show();
+                }
+                else
+                {
+                    Hint newHint = new Hint(HintDescription.getText().toString(), null);
+                    ArrayList<Hint> hintList = InternalStorage.readHintList(this);
+                    hintList.add(newHint);
+                    InternalStorage.writeHintsList(this, hintList);
+                    //Log.d(MainActivity.DEBUGSTR, "onClick: saved hintList to InternalStorage");
+                    finish();
+                }
 
                 /*
                 Log.d(MainActivity.DEBUGSTR, text.getText().toString());
@@ -126,7 +136,7 @@ public class CreateHintActivity extends AppCompatActivity implements GoogleApiCl
                     list.add(hint);
                     InternalStorage.writeHintsList(this, list);
                     Log.d(MainActivity.DEBUGSTR, "Finished saving hint");
-                    finish();
+                    finish();/
                 }
                 */
                 break;
