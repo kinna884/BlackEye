@@ -57,10 +57,10 @@ public class CreateHintActivity extends AppCompatActivity implements GoogleApiCl
             Log.d(TAG, "onCreate: permission not granted");
             ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.ACCESS_COARSE_LOCATION },
                     PERMISSION_ACCESS_COARSE_LOCATION);
-            String[] perms = {"android.permission.ACCESS_COARSE_LOCATION"};
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                String[] perms = {Manifest.permission.ACCESS_COARSE_LOCATION};
                 requestPermissions(perms, PERMISSION_ACCESS_COARSE_LOCATION);
-                
             }
         }
     }
