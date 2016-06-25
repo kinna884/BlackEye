@@ -40,6 +40,7 @@ public class CheckHintActivity extends AppCompatActivity implements LocationList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_hint);
 
+        //setup GoogleApiClient
         if (mGoogleApiClient == null) {
             mGoogleApiClient = new GoogleApiClient.Builder(this)
                     .addConnectionCallbacks(this)
@@ -76,6 +77,8 @@ public class CheckHintActivity extends AppCompatActivity implements LocationList
         {
             case R.id.CheckLocationButton:
 
+                mGoogleApiClient.connect();
+
                 Location curLoc = new Location("");
                 curLoc.setLatitude(currentLocation.latitude);
                 curLoc.setLongitude(currentLocation.longitude);
@@ -104,7 +107,8 @@ public class CheckHintActivity extends AppCompatActivity implements LocationList
     @Override
     public void onConnected(@Nullable Bundle bundle) {
         Log.d(TAG, "onConnected");
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
