@@ -20,6 +20,9 @@
         <activity android:name=".MVP.CreateHintActivity" />
         <activity android:name=".MVP.HintListActivity" />
         <activity android:name=".MVP.CheckHintActivity"></activity>
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="@string/DEVELOPER_KEY" />
     </application>
 
 </manifest>
