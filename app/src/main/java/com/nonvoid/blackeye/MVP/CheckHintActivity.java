@@ -23,6 +23,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.nonvoid.blackeye.R;
 import com.nonvoid.blackeye.models.Hint;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class CheckHintActivity extends AppCompatActivity implements LocationListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
@@ -33,7 +34,7 @@ public class CheckHintActivity extends AppCompatActivity implements LocationList
     public Hint hint;
     private Location mLastLocation;
     private LatLng currentLocation;
-    private double MARGIN_OF_ERROR = 10.0;
+    private double MARGIN_OF_ERROR = 1.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +89,15 @@ public class CheckHintActivity extends AppCompatActivity implements LocationList
                 hintLoc.setLongitude(hint.getLng());
 
                 double distance = curLoc.distanceTo(hintLoc);
+
+                // -----------------------------------------------------------
+                // Testing distance remove Text View later
+                TextView distancetoLocation = (TextView)findViewById(R.id.distanceTo);
+                DecimalFormat df = new DecimalFormat("####.##");
+                String tmpDistance = String.valueOf(df.format(distance));
+                distancetoLocation.setText(tmpDistance + " meters away");
+               //-------------------------------------------------------------------
+
                 Log.d(TAG, "onClick: distance: "+distance);
                 if(distance < MARGIN_OF_ERROR){
                     Toast toast = Toast.makeText(getApplicationContext(), "You found it!", Toast.LENGTH_LONG);
