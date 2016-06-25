@@ -33,13 +33,9 @@ import com.nonvoid.blackeye.io.InternalStorage;
 
 import java.util.ArrayList;
 
-public class CreateHintActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+public class CreateHintActivity extends AppCompatActivity {
 
     public static final String TAG = "DEBUGSTRING";
-    private static final int PERMISSION_ACCESS_COARSE_LOCATION = 1111;
-
-    private GoogleApiClient googleApiClient;
-
     Hint hint;
     TextView description;
 
@@ -50,57 +46,6 @@ public class CreateHintActivity extends AppCompatActivity implements GoogleApiCl
         setContentView(R.layout.activity_create_hint);
 
         description = (TextView) findViewById(R.id.editTextHintText);
-        googleApiClient = new GoogleApiClient.Builder(this, this, this).addApi(LocationServices.API).build();
-
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            Log.d(TAG, "onCreate: permission not granted");
-            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.ACCESS_COARSE_LOCATION },
-                    PERMISSION_ACCESS_COARSE_LOCATION);
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                String[] perms = {Manifest.permission.ACCESS_COARSE_LOCATION};
-                requestPermissions(perms, PERMISSION_ACCESS_COARSE_LOCATION);
-            }
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        switch (requestCode) {
-            case PERMISSION_ACCESS_COARSE_LOCATION:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // All good![
-                    boolean locationAccepted = (grantResults[0] == PackageManager.PERMISSION_GRANTED);
-                    Toast.makeText(this, "Got your location!", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(this, "Need your location!", Toast.LENGTH_SHORT).show();
-                }
-
-                break;
-        }
-    }
-
-    private  boolean hasPermission(String permission){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            return (checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED);
-        }
-        return true;
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (googleApiClient != null) {
-            googleApiClient.connect();
-        }
-    }
-
-    @Override
-    protected void onStop() {
-        googleApiClient.disconnect();
-        super.onStop();
     }
 
     public void onClick(View v) {
@@ -143,21 +88,5 @@ public class CreateHintActivity extends AppCompatActivity implements GoogleApiCl
 
 
         }
-    }
-
-
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
-
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
     }
 }
