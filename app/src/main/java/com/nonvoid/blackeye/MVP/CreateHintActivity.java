@@ -1,5 +1,6 @@
 package com.nonvoid.blackeye.MVP;
 
+import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,6 +34,7 @@ import java.util.ArrayList;
 
 public class CreateHintActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
+    public static final String TAG = "DEBUGSTRING";
     private static final int PERMISSION_ACCESS_COARSE_LOCATION = 1111;
 
     private GoogleApiClient googleApiClient;
@@ -52,8 +54,14 @@ public class CreateHintActivity extends AppCompatActivity implements GoogleApiCl
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
+            Log.d(TAG, "onCreate: permission not granted");
             ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.ACCESS_COARSE_LOCATION },
                     PERMISSION_ACCESS_COARSE_LOCATION);
+            String[] perms = {"android.permission.ACCESS_COARSE_LOCATION"};
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                requestPermissions(perms, PERMISSION_ACCESS_COARSE_LOCATION);
+                
+            }
         }
     }
 
@@ -62,13 +70,22 @@ public class CreateHintActivity extends AppCompatActivity implements GoogleApiCl
         switch (requestCode) {
             case PERMISSION_ACCESS_COARSE_LOCATION:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // All good!
+                    // All good![
+                    boolean locationAccepted = (grantResults[0] == PackageManager.PERMISSION_GRANTED);
+                    Toast.makeText(this, "Got your location!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(this, "Need your location!", Toast.LENGTH_SHORT).show();
                 }
 
                 break;
         }
+    }
+
+    private  boolean hasPermission(String permission){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return (checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED);
+        }
+        return true;
     }
 
     @Override
