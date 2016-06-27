@@ -1,39 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="[insert time]"
-        android:id="@+id/dateTime"
-        android:layout_gravity="right"
-        android:layout_marginRight="97dp"
-        android:layout_marginEnd="97dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Hint: "
+        android:id="@+id/textView7"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="[Hint Here]"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="[Hint Goes Here]"
         android:id="@+id/hintDescription"
-        android:layout_below="@+id/dateTime"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="16dp" />
+        android:layout_alignBottom="@+id/textView7"
+        android:layout_toRightOf="@+id/textView7"
+        android:layout_toEndOf="@+id/textView7"
+        android:textStyle="italic" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="[Location Here]"
-        android:id="@+id/hintLocation"
-        android:layout_below="@+id/hintDescription"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Location: "
+        android:id="@+id/textView8"
+        android:layout_below="@+id/textView7"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="98dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="[LatLong Goes Here]"
+        android:id="@+id/hintLocation"
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_toRightOf="@+id/textView8"
+        android:layout_toEndOf="@+id/textView8"
+        android:textStyle="italic"
+        android:textSize="18dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="[DateTime]"
+        android:id="@+id/dateTime"
+        android:textStyle="italic"
+        android:layout_below="@+id/hintLocation"
+        android:layout_alignRight="@+id/hintLocation"
+        android:layout_alignEnd="@+id/hintLocation"
+        android:layout_marginTop="59dp" />
 </RelativeLayout>

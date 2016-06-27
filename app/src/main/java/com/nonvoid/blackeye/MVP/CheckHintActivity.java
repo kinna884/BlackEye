@@ -34,7 +34,7 @@ public class CheckHintActivity extends AppCompatActivity implements LocationList
     public Hint hint;
     private Location mLastLocation;
     private LatLng currentLocation;
-    private double MARGIN_OF_ERROR = 1.0;
+    private double MARGIN_OF_ERROR = 25.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
