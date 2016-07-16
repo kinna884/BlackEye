@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.nonvoid.blackeye.MVP.CreateHintActivity;
 import com.nonvoid.blackeye.MVP.HintListActivity;
+import com.nonvoid.blackeye.MVP.PlayActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i1);
                 break;
             case  R.id.playButton:
-                //Intent i2 = new Intent(this, HintListActivity.class);
-             //   startActivity(i2);
+                Intent i2 = new Intent(this, PlayActivity.class);
+                startActivity(i2);
                 break;
 
         }
