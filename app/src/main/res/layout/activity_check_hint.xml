@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.nonvoid.blackeye.MVP.CheckHintActivity"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimaryDark">
 
     <TextView
         android:layout_width="wrap_content"
@@ -82,4 +82,5 @@
         android:layout_alignLeft="@+id/textView4"
         android:layout_alignStart="@+id/textView4"
         android:textStyle="bold" />
+
 </RelativeLayout>

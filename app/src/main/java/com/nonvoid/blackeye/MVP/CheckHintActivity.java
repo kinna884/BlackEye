@@ -1,9 +1,11 @@
 package com.nonvoid.blackeye.MVP;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -12,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +38,11 @@ public class CheckHintActivity extends AppCompatActivity implements LocationList
     private Location mLastLocation;
     private LatLng currentLocation;
     private double MARGIN_OF_ERROR = 25.0;
+    public Integer opCode;
+    static final int resultCode = 1;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +111,9 @@ public class CheckHintActivity extends AppCompatActivity implements LocationList
                     Toast toast = Toast.makeText(getApplicationContext(), "You found it!", Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.BOTTOM | Gravity.BOTTOM, 0, 0);
                     toast.show();
+                    mGoogleApiClient.disconnect();
+
+
                     break;
                 }
                 Toast toast = Toast.makeText(getApplicationContext(), "Not close enough", Toast.LENGTH_LONG);
@@ -150,5 +161,13 @@ public class CheckHintActivity extends AppCompatActivity implements LocationList
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
+    }
+    @Override
+    public void onBackPressed() {
+
+        Intent startActivityArmsListViewOnBackPressedIntent = new Intent(this, HintListActivity.class);
+        startActivity(startActivityArmsListViewOnBackPressedIntent);
+
+        //super.onBackPressed();
     }
 }

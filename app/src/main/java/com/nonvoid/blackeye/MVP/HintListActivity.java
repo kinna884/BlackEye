@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.nonvoid.blackeye.MainActivity;
 import com.nonvoid.blackeye.R;
 import com.nonvoid.blackeye.adapters.ListViewAdapter;
 import com.nonvoid.blackeye.io.InternalStorage;
@@ -66,6 +67,15 @@ public class HintListActivity extends AppCompatActivity {
                 }
 
         );
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        Intent startActivityArmsListViewOnBackPressedIntent = new Intent(this, MainActivity.class);
+        startActivity(startActivityArmsListViewOnBackPressedIntent);
+
+        //super.onBackPressed();
     }
 
 }

@@ -1,5 +1,6 @@
 package com.nonvoid.blackeye.MVP;
 
+import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
@@ -34,6 +35,7 @@ import com.nonvoid.blackeye.R;
 import com.nonvoid.blackeye.models.Hint;
 import com.nonvoid.blackeye.io.InternalStorage;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class CreateHintActivity extends AppCompatActivity implements LocationListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
@@ -70,6 +72,7 @@ public class CreateHintActivity extends AppCompatActivity implements LocationLis
         mGoogleApiClient.connect();
         super.onStart();
     }
+    @SuppressWarnings("StatementWithEmptyBody")
 
     @Override
     protected void onStop() {
@@ -157,5 +160,14 @@ public class CreateHintActivity extends AppCompatActivity implements LocationLis
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        Intent startActivityArmsListViewOnBackPressedIntent = new Intent(this, MainActivity.class);
+        startActivity(startActivityArmsListViewOnBackPressedIntent);
+
+        //super.onBackPressed();
     }
 }

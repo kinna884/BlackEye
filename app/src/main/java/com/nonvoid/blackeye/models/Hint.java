@@ -31,6 +31,7 @@ public class Hint implements Serializable {
         return new LatLng(lat, lng);
     }
 
+
     public double getLat(){
         return lat;
     }
