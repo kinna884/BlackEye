@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class Hint implements Serializable {
     String description;
-    boolean favorite;
+    boolean found;
     double lat,lng;
 
     public Hint(String description, LatLng location) {
@@ -38,12 +38,12 @@ public class Hint implements Serializable {
     public double getLng(){
         return lng;
     }
-    public boolean isFavorite() {
-        return favorite;
+    public boolean isFound() {
+        return found;
     }
 
-    public void setFavorite(boolean favorite) {
-        this.favorite = favorite;
+    public void setFound(boolean found) {
+        this.found = found;
     }
 
 }

@@ -1,11 +1,9 @@
 package com.nonvoid.blackeye.MVP;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -14,7 +12,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +24,6 @@ import com.nonvoid.blackeye.R;
 import com.nonvoid.blackeye.models.Hint;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 
 public class CheckHintActivity extends AppCompatActivity implements LocationListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
@@ -112,7 +108,7 @@ public class CheckHintActivity extends AppCompatActivity implements LocationList
                     toast.setGravity(Gravity.BOTTOM | Gravity.BOTTOM, 0, 0);
                     toast.show();
                     mGoogleApiClient.disconnect();
-
+                    hint.setFound(true);
 
                     break;
                 }
