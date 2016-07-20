@@ -2,7 +2,9 @@ package com.nonvoid.blackeye.MVP;
 
 import android.content.Intent;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Build;
+import android.provider.MediaStore;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,9 +34,12 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
 import com.nonvoid.blackeye.MainActivity;
 import com.nonvoid.blackeye.R;
+import com.nonvoid.blackeye.helper.ImageHelper;
 import com.nonvoid.blackeye.models.Hint;
 import com.nonvoid.blackeye.io.InternalStorage;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -47,6 +52,7 @@ public class CreateHintActivity extends AppCompatActivity implements LocationLis
     private Location mLastLocation;
     private TextView mLatitude, mLongitude;
     private LatLng currentLocation;
+    private ImageHelper imageFromCam;
 
 
     @Override
@@ -78,6 +84,26 @@ public class CreateHintActivity extends AppCompatActivity implements LocationLis
     protected void onStop() {
         mGoogleApiClient.disconnect();
         super.onStop();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == ImageHelper.IMAGE_REQUEST_CODE) {
+            if(resultCode == RESULT_OK)
+            {
+                if(this.imageFromCam != null) {
+                    //item.addImage(imageFromCam);
+                    Toast.makeText(this, "Image Saved", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(this, "Error Saving Image", Toast.LENGTH_LONG).show();
+                }
+            }
+            else {
+                Toast.makeText(this, "Image Not Added", Toast.LENGTH_LONG).show();
+                imageFromCam = null;
+            }
+        }
     }
 
     public void onClick(View v) {
@@ -118,8 +144,25 @@ public class CreateHintActivity extends AppCompatActivity implements LocationLis
                 }
                 */
                 break;
-
-
+            case R.id.buttonTakePicture :
+                Log.d(TAG, "onclick buttonTakePicture");
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                    // Create the File where the photo should go
+                    File photoFile = null;
+                    this.imageFromCam = new ImageHelper();
+                    try {
+                        photoFile = imageFromCam.createImageFile();
+                        Log.d(TAG, "Create image file success");
+                    } catch (IOException ex) {
+                        Log.d(TAG, "Create image file error");
+                    }
+                    if (photoFile != null) {
+                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
+                        startActivityForResult(takePictureIntent, ImageHelper.IMAGE_REQUEST_CODE);
+                    }
+                }
+                break;
         }
     }
 

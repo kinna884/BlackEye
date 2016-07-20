@@ -89,5 +89,14 @@
         android:layout_marginTop="12dp"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Take Picture"
+        android:id="@+id/buttonTakePicture"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:onClick="onClick"/>
+
 
 </RelativeLayout>

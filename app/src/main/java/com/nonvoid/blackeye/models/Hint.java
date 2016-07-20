@@ -1,6 +1,7 @@
 package com.nonvoid.blackeye.models;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.nonvoid.blackeye.helper.ImageHelper;
 
 import java.io.Serializable;
 
@@ -11,6 +12,7 @@ public class Hint implements Serializable {
     String description;
     boolean found;
     double lat,lng;
+    ImageHelper image;
 
     public Hint(String description, LatLng location) {
         this.description = description;
