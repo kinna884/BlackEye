@@ -9,26 +9,31 @@ import com.nonvoid.blackeye.MainActivity;
 import com.nonvoid.blackeye.R;
 
 public class SplashScreen extends Activity {
-
-    /** Duration of wait **/
-    private final int SPLASH_DISPLAY_LENGTH = 4000;
+    private final int SPLASH_TIME = 2000;
 
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.activity_splash_screen);
+        splash();
+    }
+    public void splash(){
+        new Handler().postDelayed(new Runnable() {
 
-        /* New Handler to start the Menu-Activity
-         * and close this Splash-Screen after some seconds.*/
-        new Handler().postDelayed(new Runnable(){
+            //Show splash screen for SPLASH_TIME length
             @Override
             public void run() {
-                /* Create an Intent that will start the Menu-Activity. */
-                Intent mainIntent = new Intent(SplashScreen.this,MainActivity.class);
-                SplashScreen.this.startActivity(mainIntent);
-                SplashScreen.this.finish();
+                // Start app main activity after splash minimal time
+                endSplash();
             }
-        }, SPLASH_DISPLAY_LENGTH);
+        }, SPLASH_TIME);
     }
-}
+
+    public void endSplash(){
+        Intent i = new Intent(SplashScreen.this, MainActivity.class);
+        startActivity(i);
+        finish();
+    }
+
+    }
