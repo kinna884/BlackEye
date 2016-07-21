@@ -151,6 +151,8 @@ public class CreateHintActivity extends AppCompatActivity implements LocationLis
                     // Create the File where the photo should go
                     File photoFile = null;
                     this.imageFromCam = new ImageHelper();
+                    if(this.imageFromCam == null)
+                        Log.d(TAG, "onClick: imageFromCam is null");
                     try {
                         photoFile = imageFromCam.createImageFile();
                         Log.d(TAG, "Create image file success");

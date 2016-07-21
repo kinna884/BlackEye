@@ -2,6 +2,9 @@ package com.nonvoid.blackeye.helper;
 
 
 import android.os.Environment;
+import android.util.Log;
+
+import com.nonvoid.blackeye.MVP.CreateHintActivity;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,6 +24,7 @@ public class ImageHelper implements Serializable{
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         this.name = "JPEG_" + timeStamp + "_";
+        Log.d(CreateHintActivity.TAG, "createImageFile: name= " +this.name);
         File storageDir = Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(
