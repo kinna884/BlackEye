@@ -1,16 +1,14 @@
-package com.nonvoid.blackeye;
+package com.nonvoid.blackeye.Phase1;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
-import com.nonvoid.blackeye.MVP.CreateHintActivity;
-import com.nonvoid.blackeye.MVP.HintListActivity;
-import com.nonvoid.blackeye.MVP.PlayActivity;
+import com.nonvoid.blackeye.Phase1.CreateHintActivity;
+import com.nonvoid.blackeye.Phase1.HintListActivity;
+import com.nonvoid.blackeye.Phase1.PlayActivity;
+import com.nonvoid.blackeye.R;
 
 public class MainActivity extends AppCompatActivity {
 

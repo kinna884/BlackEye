@@ -1,11 +1,10 @@
-package com.nonvoid.blackeye.MVP;
+package com.nonvoid.blackeye.Phase1;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.nonvoid.blackeye.MainActivity;
 import com.nonvoid.blackeye.R;
 
 public class SplashScreen extends Activity {

@@ -1,4 +1,4 @@
-package com.nonvoid.blackeye.MVP;
+package com.nonvoid.blackeye.Phase1;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

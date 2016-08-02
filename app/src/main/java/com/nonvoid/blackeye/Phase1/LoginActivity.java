@@ -1,4 +1,4 @@
-package com.nonvoid.blackeye.MVP;
+package com.nonvoid.blackeye.Phase1;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -6,13 +6,11 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.nonvoid.blackeye.MainActivity;
 import com.nonvoid.blackeye.R;
 
 import org.json.JSONException;
