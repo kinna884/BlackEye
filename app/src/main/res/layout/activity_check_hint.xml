@@ -13,20 +13,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Check your Location:"
-        android:id="@+id/textView4"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="23dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Hint:"
         android:id="@+id/textView5"
-        android:layout_below="@+id/textView4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="35dp"
@@ -44,33 +33,17 @@
         android:layout_toEndOf="@+id/textView5"
         android:textStyle="bold" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Check Location"
-        android:id="@+id/CheckLocationButton"
-        android:onClick="onClick"
-        android:textStyle="bold"
-        android:typeface="monospace"
-        android:background="@color/material_grey_600"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/distanceTo"
-        android:layout_marginTop="139dp" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Distance to Location:"
         android:id="@+id/textView"
-        android:layout_centerVertical="true"
+        android:typeface="monospace"
+        android:layout_below="@+id/hintName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:typeface="monospace" />
+        android:layout_marginTop="35dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -79,8 +52,22 @@
         android:text="[Insert]"
         android:id="@+id/distanceTo"
         android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkLocationButton"
+        android:src="@mipmap/locationchecker"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="35dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="onClick"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/distanceTo"
+        android:clickable="true" />
 
 </RelativeLayout>

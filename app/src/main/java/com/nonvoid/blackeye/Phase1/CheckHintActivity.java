@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,7 +38,7 @@ public class CheckHintActivity extends AppCompatActivity implements LocationList
     private double MARGIN_OF_ERROR = 25.0;
     public Integer opCode;
     static final int resultCode = 1;
-
+    ImageView checkLocationView;
 
 
 
@@ -75,13 +76,9 @@ public class CheckHintActivity extends AppCompatActivity implements LocationList
         super.onStop();
     }
 
+
     public void onClick(View v)
     {
-
-        switch (v.getId())
-
-        {
-            case R.id.CheckLocationButton:
 
                 mGoogleApiClient.connect();
 
@@ -111,14 +108,13 @@ public class CheckHintActivity extends AppCompatActivity implements LocationList
                     mGoogleApiClient.disconnect();
                     hint.setFound(true);
 
-                    break;
+
                 }
                 Toast toast = Toast.makeText(getApplicationContext(), "Not close enough", Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.BOTTOM | Gravity.BOTTOM, 0, 0);
                 toast.show();
-                break;
 
-        }
+
 
     }
 

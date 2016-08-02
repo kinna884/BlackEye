@@ -8,7 +8,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -17,16 +19,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Phase1.SplashScreen">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <activity android:name=".Phase1.MainActivity"/>
-        <activity android:name=".Phase1.CreateHintActivity" />
-        <activity android:name=".Phase1.HintListActivity" />
-        <activity android:name=".Phase1.CheckHintActivity" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Phase1.MainActivity" />
+        <activity
+            android:name=".Phase1.CreateHintActivity"
+            android:label="Create Location" />
+        <activity
+            android:name=".Phase1.HintListActivity"
+            android:label="Hints" />
+        <activity
+            android:name=".Phase1.CheckHintActivity"
+            android:label="Check Location" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -34,6 +42,10 @@
 
         <activity android:name=".Phase1.LoginActivity" />
         <activity android:name=".Phase1.PlayActivity" />
+        <activity
+            android:name=".Phase1.LocationsToDiscoverActivity"
+            android:label="Your Progress" />
+
 
     </application>
 

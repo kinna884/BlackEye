@@ -13,22 +13,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Create your hint"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:typeface="serif" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="What is your hint?"
         android:id="@+id/textView2"
-        android:layout_below="@+id/textView"
+        android:layout_above="@+id/editTextHintText"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="69dp" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -36,12 +26,11 @@
         android:inputType="textMultiLine"
         android:ems="10"
         android:id="@+id/editTextHintText"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -49,8 +38,9 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Pair hint with your current location:"
         android:id="@+id/textView3"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/textView6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="48dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -59,7 +49,10 @@
         android:id="@+id/buttonSaveHint"
         android:onClick="onClick"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,8 +60,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Found Location:"
         android:id="@+id/textView6"
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/textView3"
+        android:layout_above="@+id/buttonSaveHint"
+        android:layout_marginBottom="66dp"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -94,9 +87,14 @@
         android:layout_height="wrap_content"
         android:text="Take Picture"
         android:id="@+id/buttonTakePicture"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:layout_alignBottom="@+id/textViewLongitude"
+        android:layout_alignRight="@+id/editTextHintText"
+        android:layout_alignEnd="@+id/editTextHintText"
+        android:layout_toRightOf="@+id/textViewLatitude"
+        android:layout_toEndOf="@+id/textViewLatitude"
+        android:layout_marginLeft="37dp"
+        android:layout_marginStart="37dp" />
 
 
 </RelativeLayout>

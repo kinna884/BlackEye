@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i1);
                 break;
             case  R.id.playButton:
-                Intent i2 = new Intent(this, PlayActivity.class);
+                Intent i2 = new Intent(this, LocationsToDiscoverActivity.class);
                 startActivity(i2);
                 break;
 
