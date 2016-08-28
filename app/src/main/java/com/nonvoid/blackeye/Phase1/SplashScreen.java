@@ -5,7 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.firebase.ui.auth.AuthUI;
+import com.google.firebase.auth.FirebaseAuth;
+import com.nonvoid.blackeye.BuildConfig;
 import com.nonvoid.blackeye.R;
+
+import static com.firebase.ui.auth.ui.AcquireEmailHelper.RC_SIGN_IN;
 
 public class SplashScreen extends Activity {
     private final int SPLASH_TIME = 2000;
@@ -30,9 +35,40 @@ public class SplashScreen extends Activity {
     }
 
     public void endSplash(){
-        Intent i = new Intent(SplashScreen.this, MainActivity.class);
-        startActivity(i);
-        finish();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        if (auth.getCurrentUser() != null) {
+            Intent i = new Intent(SplashScreen.this, MainActivity.class);
+            startActivity(i);
+            finish();
+        } else {
+            // not signed in
+            // Note: SmartLock Passwords are disabled in Debug Builds
+            startActivityForResult(
+                    AuthUI.getInstance()
+                            .createSignInIntentBuilder()
+                            .setIsSmartLockEnabled(!BuildConfig.DEBUG)
+                            .setProviders(
+                                    AuthUI.EMAIL_PROVIDER,
+                                    AuthUI.GOOGLE_PROVIDER,
+                                    AuthUI.FACEBOOK_PROVIDER)
+                            .build(),
+                    RC_SIGN_IN);
+        }
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RC_SIGN_IN) {
+            if (resultCode == RESULT_OK) {
+                // user is signed in!
+                endSplash();
+            } else {
+                // user is not signed in. Maybe just wait for the user to press
+                // "sign in" again, or show a message
+                // for now I'm just having it re-run endSplash() and have it ask for Auth again
+                endSplash();
+            }
+        }
     }
 
     }

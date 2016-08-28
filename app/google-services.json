@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "130388058567",
+    "firebase_url": "https://blackeye-bf056.firebaseio.com",
+    "project_id": "blackeye-bf056",
+    "storage_bucket": "blackeye-bf056.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:130388058567:android:25388c98751ca197",
+        "android_client_info": {
+          "package_name": "com.nonvoid.blackeye"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "130388058567-9vcqcm5dogvp3e5agisetq2c9is1ilki.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nonvoid.blackeye",
+            "certificate_hash": "D875C48939B5CB991162C5497D8794C5B04D2B00"
+          }
+        },
+        {
+          "client_id": "130388058567-4kt63ibrpe2mca1am7meaihmttgqe7vr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpeJlTEtAxXezliVxrHFfM-0dOuBYlpwo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "130388058567-4kt63ibrpe2mca1am7meaihmttgqe7vr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
