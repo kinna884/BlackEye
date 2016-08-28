@@ -42,4 +42,26 @@
         android:layout_marginTop="30dp"
         android:layout_alignRight="@+id/viewHintsButton"
         android:layout_alignEnd="@+id/viewHintsButton" />
+
+    <Button
+        android:text="Logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/logout_button"
+        android:layout_below="@+id/playButton"
+        android:layout_marginTop="30dp"
+        android:layout_alignRight="@+id/playButton"
+        android:layout_alignEnd="@+id/playButton"
+        android:layout_alignLeft="@+id/playButton"
+        android:layout_alignStart="@+id/playButton"
+        android:onClick="onClick" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:id="@+id/welcome_textView" />
 </RelativeLayout>

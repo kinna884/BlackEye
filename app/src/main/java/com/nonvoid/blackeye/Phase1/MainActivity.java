@@ -1,16 +1,22 @@
 package com.nonvoid.blackeye.Phase1;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
-import com.nonvoid.blackeye.Phase1.CreateHintActivity;
-import com.nonvoid.blackeye.Phase1.HintListActivity;
-import com.nonvoid.blackeye.Phase1.PlayActivity;
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.nonvoid.blackeye.R;
 
 public class MainActivity extends AppCompatActivity {
+
 
 
     @Override
@@ -18,7 +24,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            // Set welcome message
+            TextView welcomeMsg = (TextView)findViewById(R.id.welcome_textView);
+            welcomeMsg.setText("Welcome " + user.getDisplayName());
+        }
     }
 
     public void onClick(View v){
@@ -36,7 +47,18 @@ public class MainActivity extends AppCompatActivity {
                 Intent i2 = new Intent(this, LocationsToDiscoverActivity.class);
                 startActivity(i2);
                 break;
-
+            case R.id.logout_button:
+                Log.d("quest", "Logout pressed");
+                AuthUI.getInstance()
+                        .signOut(this)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            public void onComplete(@NonNull Task<Void> task) {
+                                // user is now signed out
+                                startActivity(new Intent(MainActivity.this, SplashScreen.class));
+                                finish();
+                            }
+                        });
+                break;
         }
     }
 
