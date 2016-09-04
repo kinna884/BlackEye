@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
@@ -30,6 +31,16 @@ public class MainActivity extends AppCompatActivity {
             TextView welcomeMsg = (TextView)findViewById(R.id.welcome_textView);
             welcomeMsg.setText("Welcome " + user.getDisplayName());
         }
+
+        //Set ViewListeners
+        Button eventButton = (Button)findViewById(R.id.view_events_button);
+        eventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, EventListActivity.class));
+            }
+        });
+
     }
 
     public void onClick(View v){

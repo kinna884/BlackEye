@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Quest</string>
+    <string name="app_name">Path Finder</string>
     <string name="DEVELOPER_KEY">AIzaSyBrov4GUtblC2bc3Tyg11iKUrUfjIuGFIg</string>
     <string name="facebook_app_id">1748174892107914</string>
     <string name="facebook_application_id" translatable="false">1748174892107914</string>
@@ -23,5 +23,7 @@
     <string name="title_messages">Messages</string>
     <string name="title_friends">Friends</string>
     <string name="title_home">Home</string>
+    <string name="title_activity_event_list">EventListActivity</string>
+    <string name="date_picker_title">Select Date</string>
 
 </resources>

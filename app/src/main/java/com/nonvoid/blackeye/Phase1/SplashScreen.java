@@ -4,9 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.nonvoid.blackeye.BuildConfig;
 import com.nonvoid.blackeye.R;
 
@@ -69,6 +76,29 @@ public class SplashScreen extends Activity {
                 endSplash();
             }
         }
+    }
+
+    private void checkIfUserIsContentAdmin(final String email){
+        DatabaseReference AuthDb = FirebaseDatabase.getInstance().getReference().child("contentadmins");
+        Query isAuthorized = AuthDb;
+        isAuthorized.addValueEventListener(new ValueEventListener(){
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot adminSnapshot:  dataSnapshot.getChildren()) {
+                    String adminEmail = adminSnapshot.getValue(String.class);
+                    if(adminEmail.equals(email)){
+                        // Store admin variable
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("onCancelled", "Failed to read value.", databaseError.toException());
+            }
+        });
     }
 
     }

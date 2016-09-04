@@ -15,7 +15,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/quest"
-        android:label="Quest"
+        android:label="Path Finder"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Phase1.SplashScreen">
@@ -45,8 +45,21 @@
         <activity
             android:name=".Phase1.LocationsToDiscoverActivity"
             android:label="Your Progress" />
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
 
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name=".Phase1.EventListActivity"
+            android:label="@string/title_activity_event_list"
+            android:parentActivityName=".Phase1.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nonvoid.blackeye.Phase1.MainActivity" />
+        </activity>
+        <activity android:name=".Phase1.AddEventActivity"></activity>
     </application>
 
 </manifest>
