@@ -53,4 +53,16 @@ public class InternalStorage {
         else
             return list;
     }
+
+    public static void setUserAsAdmin(Context context){
+        InternalStorage.writeObject(context, "UserIsAdmin", true);
+    }
+
+    public static boolean userIsAdmin(Context context){
+        boolean isAdmin = (boolean) InternalStorage.readObject(context, "UserIsAdmin");
+        if(isAdmin)
+            return true;
+        else
+            return false;
+    }
 }

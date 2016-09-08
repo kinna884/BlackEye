@@ -26,28 +26,24 @@ import com.nonvoid.blackeye.models.Event;
 public class EventListActivity extends AppCompatActivity {
 
     FirebaseUser mUser;
-    DatabaseReference EventDB;
+    DatabaseReference mEventDB;
     RecyclerView mEventRecycleList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_list);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        mUser = FirebaseAuth.getInstance().getCurrentUser();
-        EventDB = FirebaseDatabase.getInstance().getReference().child("Event");
-        AddFABIfAuthorized();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //Configure Recycle View
+        mUser = FirebaseAuth.getInstance().getCurrentUser();
+        mEventDB = FirebaseDatabase.getInstance().getReference().child("Events");
+
         mEventRecycleList = (RecyclerView)findViewById(R.id.event_recycle_list);
         mEventRecycleList.setHasFixedSize(true);
         mEventRecycleList.setLayoutManager(new LinearLayoutManager(this));
-
-
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     }
 
     @Override
@@ -59,7 +55,7 @@ public class EventListActivity extends AppCompatActivity {
                         Event.class,
                         R.layout.image_cardview,
                         ImageCardViewViewHolder.class,
-                        EventDB
+                        mEventDB
                 ) {
                     @Override
                     protected void populateViewHolder(ImageCardViewViewHolder viewHolder, Event model, int position) {
@@ -67,35 +63,36 @@ public class EventListActivity extends AppCompatActivity {
                         viewHolder.setDate(model.date);
                     }
                 };
-
         mEventRecycleList.setAdapter(adapter);
+
+        AddFABIfAuthorized();
     }
 
     private void AddFABIfAuthorized() {
         DatabaseReference AuthDb = FirebaseDatabase.getInstance().getReference().child("contentadmins");
         Query isAuthorized = AuthDb;
         isAuthorized.addValueEventListener(new ValueEventListener(){
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        final String currentUser = mUser.getEmail();
-                        for (DataSnapshot adminSnapshot:  dataSnapshot.getChildren()) {
-                            String admin = adminSnapshot.getValue(String.class);
-                            if(admin.equals(currentUser)){
-                                enableFab();
-                                break;
-                            }
-                        }
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                final String currentUser = mUser.getEmail();
+                for (DataSnapshot adminSnapshot:  dataSnapshot.getChildren()) {
+                    String admin = adminSnapshot.getValue(String.class);
+                    if(admin.equals(currentUser)){
+                        enableFab();
+                        break;
                     }
+                }
+            }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Log.w("onCancelled", "Failed to read value.", databaseError.toException());
-                    }
-                });
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("onCancelled", "Failed to read value.", databaseError.toException());
+            }
+        });
     }
 
     private void enableFab(){
-        Log.e("Admin" , "Event FAB Enabled");
+        Log.d("Admin" , "Event FAB Enabled");
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.show();
         fab.setOnClickListener(new View.OnClickListener() {
