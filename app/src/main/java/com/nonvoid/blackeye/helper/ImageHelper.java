@@ -4,7 +4,7 @@ package com.nonvoid.blackeye.helper;
 import android.os.Environment;
 import android.util.Log;
 
-import com.nonvoid.blackeye.Phase1.CreateHintActivity;
+import com.nonvoid.blackeye.Phase1.EventStuff.CreateHintActivity;
 
 import java.io.File;
 import java.io.IOException;

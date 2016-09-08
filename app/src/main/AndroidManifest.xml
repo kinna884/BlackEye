@@ -18,7 +18,7 @@
         android:label="Path Finder"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Phase1.SplashScreen">
+        <activity android:name=".Phase1.AppStuff.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,23 +27,23 @@
         </activity>
         <activity android:name=".Phase1.MainActivity" />
         <activity
-            android:name=".Phase1.CreateHintActivity"
+            android:name=".Phase1.EventStuff.CreateHintActivity"
             android:label="Create Location" />
         <activity
-            android:name=".Phase1.HintListActivity"
+            android:name=".Phase1.EventStuff.HintListActivity"
             android:label="Hints" />
         <activity
-            android:name=".Phase1.CheckHintActivity"
+            android:name=".Phase1.EventStuff.CheckHintActivity"
             android:label="Check Location" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/DEVELOPER_KEY" />
 
-        <activity android:name=".Phase1.LoginActivity" />
-        <activity android:name=".Phase1.PlayActivity" />
+        <activity android:name=".Phase1.AppStuff.LoginActivity" />
+        <activity android:name=".Phase1.EventStuff.PlayActivity" />
         <activity
-            android:name=".Phase1.LocationsToDiscoverActivity"
+            android:name=".Phase1.EventStuff.LocationsToDiscoverActivity"
             android:label="Your Progress" />
 
         <meta-data
@@ -51,7 +51,7 @@
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name=".Phase1.EventListActivity"
+            android:name=".Phase1.EventStuff.EventListActivity"
             android:label="@string/title_activity_event_list"
             android:parentActivityName=".Phase1.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -59,7 +59,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.nonvoid.blackeye.Phase1.MainActivity" />
         </activity>
-        <activity android:name=".Phase1.AddEventActivity"></activity>
+        <activity android:name=".Phase1.EventStuff.AddEventActivity"></activity>
     </application>
 
 </manifest>

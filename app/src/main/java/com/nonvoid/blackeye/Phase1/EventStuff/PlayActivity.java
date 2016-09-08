@@ -1,9 +1,10 @@
-package com.nonvoid.blackeye.Phase1;
+package com.nonvoid.blackeye.Phase1.EventStuff;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.nonvoid.blackeye.Phase1.EventStuff.CheckHintActivity;
 import com.nonvoid.blackeye.R;
 import com.nonvoid.blackeye.io.InternalStorage;
 import com.nonvoid.blackeye.models.Hint;

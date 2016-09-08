@@ -1,4 +1,4 @@
-package com.nonvoid.blackeye.Phase1;
+package com.nonvoid.blackeye.Phase1.AppStuff;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.os.Handler;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.nonvoid.blackeye.BuildConfig;
+import com.nonvoid.blackeye.Phase1.MainActivity;
 import com.nonvoid.blackeye.R;
 
 import static com.firebase.ui.auth.ui.AcquireEmailHelper.RC_SIGN_IN;

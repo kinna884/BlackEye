@@ -14,6 +14,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.nonvoid.blackeye.Phase1.AppStuff.SplashScreen;
+import com.nonvoid.blackeye.Phase1.EventStuff.CreateHintActivity;
+import com.nonvoid.blackeye.Phase1.EventStuff.EventListActivity;
+import com.nonvoid.blackeye.Phase1.EventStuff.HintListActivity;
+import com.nonvoid.blackeye.Phase1.EventStuff.LocationsToDiscoverActivity;
 import com.nonvoid.blackeye.R;
 
 public class MainActivity extends AppCompatActivity {

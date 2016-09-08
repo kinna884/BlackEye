@@ -1,4 +1,4 @@
-package com.nonvoid.blackeye.Phase1;
+package com.nonvoid.blackeye.Phase1.EventStuff;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.nonvoid.blackeye.Phase1.MainActivity;
 import com.nonvoid.blackeye.R;
 import com.nonvoid.blackeye.adapters.ListViewAdapter;
 import com.nonvoid.blackeye.io.InternalStorage;

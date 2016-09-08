@@ -1,4 +1,4 @@
-package com.nonvoid.blackeye.Phase1;
+package com.nonvoid.blackeye.Phase1.EventStuff;
 
 import android.Manifest;
 import android.content.Intent;
@@ -21,7 +21,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.LatLng;
-import com.nonvoid.blackeye.Phase1.HintListActivity;
 import com.nonvoid.blackeye.R;
 import com.nonvoid.blackeye.models.Hint;
 
