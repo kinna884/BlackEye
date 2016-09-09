@@ -1,4 +1,4 @@
-package com.nonvoid.blackeye.Phase1;
+package com.nonvoid.blackeye.Phase1.AppStuff;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.nonvoid.blackeye.Phase1.EventStuff.CreateHintActivity;
 import com.nonvoid.blackeye.R;
 
 import org.json.JSONException;

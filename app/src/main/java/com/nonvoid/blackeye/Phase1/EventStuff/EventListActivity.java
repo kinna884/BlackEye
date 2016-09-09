@@ -1,4 +1,4 @@
-package com.nonvoid.blackeye.Phase1;
+package com.nonvoid.blackeye.Phase1.EventStuff;
 
 import android.content.Intent;
 import android.os.Bundle;

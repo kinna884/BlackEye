@@ -1,4 +1,4 @@
-package com.nonvoid.blackeye.Phase1;
+package com.nonvoid.blackeye.Phase1.EventStuff;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -6,6 +6,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.nonvoid.blackeye.Phase1.MainActivity;
 import com.nonvoid.blackeye.R;
 
 import android.Manifest;

@@ -1,4 +1,4 @@
-package com.nonvoid.blackeye.Phase1;
+package com.nonvoid.blackeye.Phase1.EventStuff;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
