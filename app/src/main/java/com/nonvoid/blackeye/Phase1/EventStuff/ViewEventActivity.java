@@ -1,9 +1,9 @@
 package com.nonvoid.blackeye.Phase1.EventStuff;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -20,26 +20,29 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.nonvoid.blackeye.R;
-import com.nonvoid.blackeye.adapters.ImageCardViewViewHolder;
+import com.nonvoid.blackeye.adapters.HintCardViewHolderAdapter;
 import com.nonvoid.blackeye.models.Event;
+import com.nonvoid.blackeye.models.Hint;
 
-public class EventListActivity extends AppCompatActivity {
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class ViewEventActivity extends AppCompatActivity {
 
     FirebaseUser mUser;
-    DatabaseReference mEventDB;
+    DatabaseReference mHintsDB;
     RecyclerView mEventRecycleList;
+    Event event;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_list);
+        setContentView(R.layout.activity_view_event);
+        event = new Event(getIntent().getStringExtra("event"));
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        Log.d("ViewEvent", "EventID = " + event.Id );
         mUser = FirebaseAuth.getInstance().getCurrentUser();
-        mEventDB = FirebaseDatabase.getInstance().getReference().child("Events");
+        mHintsDB = FirebaseDatabase.getInstance().getReference().child("Objectives").child(event.Id);
 
         mEventRecycleList = (RecyclerView)findViewById(R.id.event_recycle_list);
         mEventRecycleList.setHasFixedSize(true);
@@ -50,26 +53,17 @@ public class EventListActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        FirebaseRecyclerAdapter<Event, ImageCardViewViewHolder> adapter =
-                new FirebaseRecyclerAdapter<Event, ImageCardViewViewHolder>(
-                        Event.class,
-                        R.layout.image_cardview,
-                        ImageCardViewViewHolder.class,
-                        mEventDB
+        FirebaseRecyclerAdapter<Hint, HintCardViewHolderAdapter> adapter =
+                new FirebaseRecyclerAdapter<Hint, HintCardViewHolderAdapter>(
+                        Hint.class,
+                        R.layout.hint_cardview,
+                        HintCardViewHolderAdapter.class,
+                        mHintsDB
                 ) {
                     @Override
-                    protected void populateViewHolder(ImageCardViewViewHolder viewHolder, Event model, int position) {
-                        viewHolder.setName(model.name);
-                        viewHolder.setDate(model.date);
-                        final Event event = model;
-                        viewHolder.mView.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Intent i = new Intent(getBaseContext(), ViewEventActivity.class);
-                                i.putExtra("event", event.toJSON());
-                                startActivity(i);
-                            }
-                        });
+                    protected void populateViewHolder(HintCardViewHolderAdapter viewHolder, Hint model, int position) {
+                        viewHolder.setTitle("Temp Title");
+                        viewHolder.setBody(model.description);
                     }
                 };
         mEventRecycleList.setAdapter(adapter);
@@ -102,14 +96,19 @@ public class EventListActivity extends AppCompatActivity {
 
     private void enableFab(){
         Log.d("Admin" , "Event FAB Enabled");
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.view_event_fab);
         fab.show();
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(EventListActivity.this, AddEventActivity.class);
+                Intent i = new Intent(ViewEventActivity.this, AddObjectiveActivity.class);
+                i.putExtra("event", event.toJSON());
                 startActivity(i);
             }
         });
+    }
+
+    public void getObjectives(){
+
     }
 }

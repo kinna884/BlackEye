@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
@@ -16,11 +17,13 @@ import static com.firebase.ui.auth.ui.AcquireEmailHelper.RC_SIGN_IN;
 public class SplashScreen extends Activity {
     private final int SPLASH_TIME = 2000;
 
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.activity_splash_screen);
+        Log.d(MainActivity.TAG,"Splash OnCreate");
         splash();
     }
     public void splash(){
@@ -62,11 +65,13 @@ public class SplashScreen extends Activity {
         if (requestCode == RC_SIGN_IN) {
             if (resultCode == RESULT_OK) {
                 // user is signed in!
+                Log.d(MainActivity.TAG, "User is logged in");
                 endSplash();
             } else {
                 // user is not signed in. Maybe just wait for the user to press
                 // "sign in" again, or show a message
                 // for now I'm just having it re-run endSplash() and have it ask for Auth again
+                Log.d(MainActivity.TAG, "onActivityResult: ");
                 endSplash();
             }
         }

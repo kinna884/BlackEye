@@ -12,11 +12,12 @@ import com.nonvoid.blackeye.R;
  */
 
 public class ImageCardViewViewHolder extends RecyclerView.ViewHolder {
-        View mView;
+        public View mView;
 
         public ImageCardViewViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
+
         }
 
         public void setName(String name) {
@@ -35,5 +36,4 @@ public class ImageCardViewViewHolder extends RecyclerView.ViewHolder {
                 icon.setImageResource(R.mipmap.fav_liked);
             }
         }
-
 }

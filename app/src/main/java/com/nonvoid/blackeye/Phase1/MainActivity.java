@@ -23,7 +23,7 @@ import com.nonvoid.blackeye.R;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    public static String TAG = "LOGTAG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

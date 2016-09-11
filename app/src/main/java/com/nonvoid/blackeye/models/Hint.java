@@ -9,43 +9,20 @@ import java.io.Serializable;
  * Created by Matt on 6/21/2016.
  */
 public class Hint implements Serializable {
-    String description;
-    boolean found;
-    double lat,lng;
-    ImageHelper image;
+    public String id;
+    public String title;
+    public String description;
+    
+    public Hint() {
+    }
 
-    public Hint(String description, LatLng location) {
+    public Hint(String title, String description) {
+        this.title = title;
         this.description = description;
-        this.lat = location.latitude;
-        this.lng = location.longitude;
     }
 
     public Hint(String description) {
         this.description = description;
-        //this.location = new LatLng(0,0);
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public LatLng getLocation() {
-        return new LatLng(lat, lng);
-    }
-
-
-    public double getLat(){
-        return lat;
-    }
-    public double getLng(){
-        return lng;
-    }
-    public boolean isFound() {
-        return found;
-    }
-
-    public void setFound(boolean found) {
-        this.found = found;
     }
 
 }

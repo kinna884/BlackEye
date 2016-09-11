@@ -114,7 +114,7 @@ public class CreateHintActivity extends AppCompatActivity implements LocationLis
                 else
                 {
                     //good to go
-                    Hint newHint = new Hint(HintDescription.getText().toString(), currentLocation);
+                    Hint newHint = new Hint(HintDescription.getText().toString());
                     ArrayList<Hint> hintList = InternalStorage.readHintList(this);
                     hintList.add(newHint);
                     InternalStorage.writeHintsList(this, hintList);

@@ -40,8 +40,8 @@ public class ListViewAdapter extends ArrayAdapter<Hint> {
         TextView title = (TextView) convertView.findViewById(R.id.hintDescription);
         TextView loc = (TextView) convertView.findViewById(R.id.hintLocation);
 
-        title.setText(item.getDescription());
-        loc.setText(item.getLocation().toString());
+        //title.setText(item.getDescription());
+        //loc.setText(item.getLocation().toString());
 
 
         return convertView;

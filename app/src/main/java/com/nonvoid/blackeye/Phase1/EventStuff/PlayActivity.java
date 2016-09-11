@@ -23,12 +23,6 @@ public class PlayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
         Intent i = new Intent(this, CheckHintActivity.class);
-        for(int j=0;j<hints.size();j++){
-            if(!hints.get(j).isFound())
-                continue;
-            i.putExtra("HintNumber", j);
-            startActivityForResult(i,CHECKHINTREQUESTCODE );
-        }
     }
 
     @Override

@@ -59,7 +59,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.nonvoid.blackeye.Phase1.MainActivity" />
         </activity>
-        <activity android:name=".Phase1.EventStuff.AddEventActivity"></activity>
+        <activity android:name=".Phase1.EventStuff.AddEventActivity" />
+        <activity android:name=".Phase1.EventStuff.ViewEventActivity" />
+        <activity android:name=".Phase1.EventStuff.AddObjectiveActivity"></activity>
     </application>
 
 </manifest>

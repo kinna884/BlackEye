@@ -59,7 +59,7 @@ public class CheckHintActivity extends AppCompatActivity implements LocationList
         hint = (Hint) intent.getSerializableExtra(HintListActivity.THISHINT);
 
         TextView hintString = (TextView) findViewById(R.id.hintName);
-        hintString.setText(hint.getDescription());
+        //hintString.setText(hint.getDescription());
 
     }
 
@@ -86,8 +86,8 @@ public class CheckHintActivity extends AppCompatActivity implements LocationList
                 curLoc.setLongitude(currentLocation.longitude);
 
                 Location hintLoc = new Location("");
-                hintLoc.setLatitude(hint.getLat());
-                hintLoc.setLongitude(hint.getLng());
+               // hintLoc.setLatitude(hint.getLat());
+               // hintLoc.setLongitude(hint.getLng());
 
                 double distance = curLoc.distanceTo(hintLoc);
 
@@ -105,7 +105,7 @@ public class CheckHintActivity extends AppCompatActivity implements LocationList
                     toast.setGravity(Gravity.BOTTOM | Gravity.BOTTOM, 0, 0);
                     toast.show();
                     mGoogleApiClient.disconnect();
-                    hint.setFound(true);
+                   // hint.setFound(true);
 
 
                 }

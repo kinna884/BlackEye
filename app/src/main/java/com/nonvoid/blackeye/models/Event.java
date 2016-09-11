@@ -4,6 +4,10 @@ import android.util.Log;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.nonvoid.blackeye.helper.LogTags;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,7 +29,19 @@ public class Event {
 
 
     public Event(){}
-
+    public Event (String json){
+        try {
+            JSONObject jsonObject = new JSONObject(json);
+            Log.d(LogTags.INFO, "JSON: "+ jsonObject.toString());
+            this.Id = jsonObject.getString("id");
+            this.name = jsonObject.getString("name");
+            this.description = jsonObject.getString("description");
+            this.imageUrl = jsonObject.getString("imageUrl");
+            this.date = jsonObject.getString("date");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 
     public boolean isValid() throws VerifyError
     {
@@ -70,6 +86,23 @@ public class Event {
 
         //Add/Override Event
         database.child("Events").child(event.Id).setValue(event);
+    }
+
+    public String toJSON(){
+        JSONObject jsonObject = new JSONObject();
+        try{
+            jsonObject.put("id", this.Id);
+            jsonObject.put("name", this.Id);
+            jsonObject.put("description", this.description);
+            jsonObject.put("imageUrl", this.imageUrl);
+            jsonObject.put("date", this.date);
+
+            return jsonObject.toString();
+
+        } catch (JSONException e){
+            e.printStackTrace();
+            return "";
+        }
     }
 
 }
