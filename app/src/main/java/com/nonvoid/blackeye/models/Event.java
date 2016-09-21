@@ -88,6 +88,8 @@ public class Event {
         database.child("Events").child(event.Id).setValue(event);
     }
 
+
+
     public String toJSON(){
         JSONObject jsonObject = new JSONObject();
         try{

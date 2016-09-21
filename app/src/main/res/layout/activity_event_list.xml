@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.nonvoid.blackeye.Phase1.EventStuff.EventListActivity">
+    tools:context="com.nonvoid.blackeye.Phase1.EventStuff.EventListActivity"
+    android:background="@color/com_facebook_blue">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

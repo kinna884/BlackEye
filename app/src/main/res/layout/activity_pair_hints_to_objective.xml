@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_pair_hints_to_objective"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.nonvoid.blackeye.Phase1.EventStuff.PairHintsToObjectiveActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:text="Select your Event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView11"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/choose_event_spinner"
+        android:layout_marginTop="21dp"
+        android:layout_below="@+id/choose_objective_point"></Spinner>
+
+    <TextView
+        android:text="Select your Objective Point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView10"
+        android:layout_above="@+id/button3"
+        android:layout_marginBottom="21dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/choose_objective_point_spinner"
+        android:layout_marginTop="63dp"
+        android:layout_below="@+id/textView10">
+    </Spinner>
+
+    <Button
+        android:text="Next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner3"
+        android:onClick="onClick"
+        android:layout_marginTop="153dp"
+        android:id="@+id/HintObjectiveButton" />
+</LinearLayout>

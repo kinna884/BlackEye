@@ -34,9 +34,8 @@ public class EventListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_list);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
 
         mUser = FirebaseAuth.getInstance().getCurrentUser();
         mEventDB = FirebaseDatabase.getInstance().getReference().child("Events");

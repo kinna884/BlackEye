@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -23,10 +24,22 @@ public class Objective {
     public boolean completed = false;
     public double latitude;
     public double longitude;
+    public List<Hint> hintList;
 
     public Objective() {
     }
 
+    public List<Hint> getHintList() {
+        return hintList;
+    }
+
+    public void setHintList(List<Hint> hintList) {
+        this.hintList = hintList;
+    }
+
+    public Hint getHint(int i)   {
+        return hintList.get(i);
+    }
     public boolean isValid() throws VerifyError
     {
         if(latitude == 0)

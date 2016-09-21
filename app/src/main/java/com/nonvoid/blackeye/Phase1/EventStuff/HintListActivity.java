@@ -3,6 +3,7 @@ package com.nonvoid.blackeye.Phase1.EventStuff;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -30,11 +31,14 @@ public class HintListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hint_list);
+
+
         hints = InternalStorage.readHintList(this);
         Log.d(TAG, "onCreate: hints size="+hints.size());
         listView = (ListView) findViewById(R.id.listViewHints);
         adapter = new ListViewAdapter(this, hints);
         listView.setAdapter(adapter);
+
 
 
         hints = InternalStorage.readHintList(this);
