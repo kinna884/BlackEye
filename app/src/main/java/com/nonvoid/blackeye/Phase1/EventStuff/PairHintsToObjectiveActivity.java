@@ -1,11 +1,13 @@
 package com.nonvoid.blackeye.Phase1.EventStuff;
 
 import android.content.Intent;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,10 +35,13 @@ public class PairHintsToObjectiveActivity extends AppCompatActivity {
         Log.d(LogTags.MAIN, database.child("Events").toString());
        // ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, )
         eventList = new ArrayList();
+        Spinner eventSpinner = (Spinner) findViewById(R.id.eventSpinner);
+
+
 
 
     }
-    private void getEventsFromDB() {
+    private void getEventsFromDB(ArrayList<Event> eventList) {
         DatabaseReference AuthDb = FirebaseDatabase.getInstance().getReference().child("Events");
         Query receivedEvents = AuthDb;
         receivedEvents.addValueEventListener(new ValueEventListener(){
@@ -44,7 +49,7 @@ public class PairHintsToObjectiveActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot eventSnapshot:  dataSnapshot.getChildren()) {
                     Event event = eventSnapshot.getValue(Event.class);
-                    eventList.add(event);
+                    PairHintsToObjectiveActivity.this.eventList.add(event);
                     Log.d(LogTags.MAIN, "Name of the Event: " + event.name);
                 }
             }
@@ -57,11 +62,14 @@ public class PairHintsToObjectiveActivity extends AppCompatActivity {
     }
 
 
-   /* public void onClick(View view)
+
+
+   public void onClick(View view)
     {
-        Intent
+
+
     }
-*/
+
 
 
 }

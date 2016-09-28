@@ -76,4 +76,14 @@
         android:layout_alignStart="@+id/createHintButton"
         android:layout_alignRight="@+id/createHintButton"
         android:layout_alignEnd="@+id/createHintButton" />
+
+    <Button
+        android:text="Create Event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:onClick="onClick"
+        android:layout_alignLeft="@+id/logout_button"
+        android:layout_alignStart="@+id/logout_button"
+        android:id="@+id/createEventButton" />
 </RelativeLayout>

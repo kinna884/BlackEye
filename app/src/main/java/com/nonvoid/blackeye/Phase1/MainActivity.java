@@ -15,10 +15,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.nonvoid.blackeye.Phase1.AppStuff.SplashScreen;
+import com.nonvoid.blackeye.Phase1.EventStuff.AddEventActivity;
 import com.nonvoid.blackeye.Phase1.EventStuff.CreateHintActivity;
 import com.nonvoid.blackeye.Phase1.EventStuff.EventListActivity;
 import com.nonvoid.blackeye.Phase1.EventStuff.HintListActivity;
 import com.nonvoid.blackeye.Phase1.EventStuff.LocationsToDiscoverActivity;
+import com.nonvoid.blackeye.Phase1.EventStuff.PairHintsToObjectiveActivity;
 import com.nonvoid.blackeye.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -62,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
             case  R.id.playButton:
                 Intent i2 = new Intent(this, LocationsToDiscoverActivity.class);
                 startActivity(i2);
+                break;
+            case R.id.createEventButton:
+                Intent i4 = new Intent(this, PairHintsToObjectiveActivity.class);
+                startActivity(i4);
                 break;
             case R.id.logout_button:
                 Log.d("quest", "Logout pressed");

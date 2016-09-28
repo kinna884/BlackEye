@@ -21,11 +21,15 @@
         android:layout_alignParentStart="true"/>
 
     <Spinner
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/choose_event_spinner"
-        android:layout_marginTop="21dp"
-        android:layout_below="@+id/choose_objective_point"></Spinner>
+        android:id="@+id/eventSpinner"
+        android:layout_marginTop="63dp"
+        android:prompt="@string/country_prompt"
+        android:layout_below="@+id/textView10">
+    </Spinner>
+
 
     <TextView
         android:text="Select your Objective Point"
@@ -36,6 +40,7 @@
         android:layout_marginBottom="21dp" />
 
     <Spinner
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/choose_objective_point_spinner"

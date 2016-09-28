@@ -26,4 +26,10 @@
     <string name="title_activity_event_list">EventListActivity</string>
     <string name="date_picker_title">Select Date</string>
 
+    <string name="event_prompt">Choose the Event</string>
+
+
 </resources>
+
+
+
